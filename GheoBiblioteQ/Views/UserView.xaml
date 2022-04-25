@@ -1,0 +1,289 @@
+﻿<UserControl x:Class="GheoBiblioteQ.Views.UserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GheoBiblioteQ.Views"
+             xmlns:enums="clr-namespace:GheoBiblioteQ._Service"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*">
+
+            </ColumnDefinition>
+            <ColumnDefinition Width="4*">
+
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition>
+
+            </RowDefinition>
+
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Column="0" Grid.Row="0" Panel.ZIndex="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                Grid.Row="0"
+				Text="Users" 
+				FontSize="40"
+				Padding="10"
+				Grid.ColumnSpan="20"
+				HorizontalAlignment="Center"/>
+            <TextBlock 
+				Grid.Row="2"
+				Padding="10,10,0,0"
+				Text="First Name:"
+				FontSize="20"
+				/>
+            <TextBlock 
+				Grid.Row="3"
+				Padding="10,10,0,0"
+				Text="Last Name:"
+				FontSize="20"
+				/>
+            <TextBlock 
+				Grid.Row="4"
+				Padding="10,10,0,0"
+				Text="Email:"
+				FontSize="20"
+				/>
+            <TextBlock 
+				Grid.Row="5"
+				Padding="10,10,0,0"
+				Text="Phone:"
+				FontSize="20"
+				/>
+
+            <ComboBox 
+                FontSize="20"
+                Grid.Row="9"
+                Margin="10,5,10,5"
+                Grid.ColumnSpan="1"
+                ItemsSource="{Binding Source={enums:EnumBindingSource {x:Type enums:UsersFieldsEnum}}}"
+                SelectedValue="{Binding Path=SearchType}"
+                />
+
+            <TextBlock 
+				Grid.Row="8"
+				Padding="10,10,0,0"
+				Text="Search user by:"
+				FontSize="20"
+				/>
+
+            <TextBox
+                Name="txtFirstName"
+				Margin="7,5,20,5"
+				Grid.Column="1"
+				Grid.Row="2"
+				Padding="10,5,0,10"
+				FontSize="18"
+                Text="{Binding Path= CurrentUser.FirstName, Mode=TwoWay}"
+				>
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+
+            <TextBox
+                Name="txtLastName"
+				Margin="7,5,20,5"
+				Grid.Column="1"
+				Grid.Row="3"
+				Padding="10,5,0,10"
+				FontSize="18"
+                Text="{Binding Path= CurrentUser.LastName, Mode=TwoWay}"
+			>
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+
+            <TextBox
+                Name="txtEmail"
+				Margin="7,5,20,5"
+				Grid.Column="1"
+				Grid.Row="4"
+				Padding="10,5,0,10"
+				FontSize="18"
+                Text="{Binding Path= CurrentUser.Email, Mode=TwoWay}"
+			>
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+
+
+            <TextBox
+                Name="txtPhone"
+				Margin="7,5,20,5"
+				Grid.Column="1"
+				Grid.Row="5"
+				Padding="10,5,0,10"
+				FontSize="18"
+                Text="{Binding Path= CurrentUser.Phone, Mode=TwoWay}"    
+			>
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+
+            <TextBox
+                Name="txtSearch"
+				Margin="10,5,10,5"
+				Grid.Column="1"
+				Grid.Row="9"
+				Padding="10,5,0,10"
+				FontSize="18"
+                Text="{Binding Path= SearchedUser, UpdateSourceTrigger=PropertyChanged}"
+			>
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+
+            <TextBlock 
+                Name="txtBlockMessage"
+				Grid.Row="6"
+                Grid.Column="1"
+				Padding="7"
+                Text="{Binding Path=Message}"       
+            />
+
+            <Button
+				Name="btnAdd"
+				Content="SAVE"
+				Margin="2,7,0,7"
+				Grid.Column="1"
+				Grid.Row="7"
+				Width="100"
+				HorizontalAlignment="Left"
+                Command="{Binding Path = SaveCommand }" Background="#FF6AE02B" FontWeight="Bold"
+				/>
+
+            <Button
+				Name="btnUpdate"
+				Content="UPDATE"
+				Grid.Column="1"
+				Grid.Row="7"
+				Margin="105,7,0,7"
+				Width="100"
+				HorizontalAlignment="Left"
+                Command="{Binding Path = UpdateCommand}" Background="#FF08ADF3" FontWeight="Bold"
+				/>
+
+            <!--<Button
+				Name="btnSearch"
+				Content="SEARCH"
+				Grid.Column="1"
+				Grid.Row="9"
+				Margin="250,7,0,7"
+				Width="80"
+				HorizontalAlignment="Left"
+                Command="{Binding Path =SearchCommand}"
+				/>-->
+
+            <Button
+				Name="btnDelete"
+				Content="DELETE"
+				Grid.Column="1"
+				Grid.Row="7"
+				Margin="210,7,0,7"
+				Width="100"
+				HorizontalAlignment="Left"
+                Command="{Binding Path=DeleteCommand}" Background="#FFF1421B" OpacityMask="#FFC77474" FontWeight="Bold"
+				/>
+            <Button
+				Name="btnActive"
+				Content="Active/Inactive"
+				Grid.Column="0"
+				Grid.Row="7"
+				Margin="68,7,0,7"
+				Width="100"
+				HorizontalAlignment="Left"
+                Command="{Binding Path=SwitchActiveCommand}" Background="Yellow" OpacityMask="#FFC77474" FontWeight="Bold"
+				/>
+
+        </Grid>
+
+        <Border Grid.Column="0" Background="LightCyan"/>
+
+        <Border Grid.Column="1" Background="DarkCyan"/>
+
+        <DataGrid Name="dgUsers"
+				  FontSize="16"
+                  FontWeight="Bold"
+                  Opacity="0.7"
+				  Padding="10"
+				  Grid.Column="1"
+				  Grid.Row="0"
+				  AutoGenerateColumns="False"
+				  ItemsSource="{Binding Path= UserDTOs}"
+                  SelectedItem="{Binding Path= SelectedUser}" Background="Transparent"
+                  >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="User Id"
+                    Width="auto"
+                    Binding="{Binding Path = UserId}"
+                    
+                    />
+
+                <DataGridTextColumn 
+                    Header="First Name"
+                    Width="2*"
+                    Binding="{Binding Path = FirstName}"
+                    />
+
+                <DataGridTextColumn 
+                    Header="Last Name"
+                    Width="2*"
+                    Binding="{Binding Path = LastName}"
+                    />
+
+                <DataGridTextColumn 
+                    Header="Email"
+                    Width="3.5*"
+                    Binding="{Binding Path = Email}"
+                    />
+
+                <DataGridTextColumn 
+                    Header="Phone"
+                    Width="3*"
+                    Binding="{Binding Path = Phone}"
+                    />
+                <DataGridTextColumn 
+                    Header="Active"
+                    Width="auto"
+                    Binding="{Binding Path = Active}"
+                    />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
