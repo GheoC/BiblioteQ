@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GheoBiblioteQ._Stores;
+using GheoBiblioteQ.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,26 @@ namespace GheoBiblioteQ
     /// </summary>
     public partial class App : Application
     {
+        private readonly NavigationStore navigationStore;
+
+        public App()
+        {
+            navigationStore = new NavigationStore();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            navigationStore.CurrentViewModel= new AuthorViewModel();
+
+            MainWindow = new MainWindow()
+            {
+
+                DataContext = new MainViewModel(navigationStore)
+            };
+            MainWindow.Show();
+
+            base.OnStartup(e);
+        }
+
     }
 }

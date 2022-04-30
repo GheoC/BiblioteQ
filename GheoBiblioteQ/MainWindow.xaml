@@ -6,13 +6,27 @@
         xmlns:local="clr-namespace:GheoBiblioteQ"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1200"
-        xmlns:vw="clr-namespace:GheoBiblioteQ.Views">
+        xmlns:vw="clr-namespace:GheoBiblioteQ.Views"
+        xmlns:vms="clr-namespace:GheoBiblioteQ.ViewModels"
+        >
 
     <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:UserViewModel}">
+                <vw:UserView/>
+            </DataTemplate>
 
-        <!--<vw:UserView></vw:UserView>-->
+            <DataTemplate DataType="{x:Type vms:PublisherViewModel}">
+                <vw:PublisherView/>
+            </DataTemplate>
 
-        <vw:PublisherView></vw:PublisherView>
-        
+            <DataTemplate DataType="{x:Type vms:AuthorViewModel}">
+                <vw:AuthorView/>
+            </DataTemplate>
+
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+
     </Grid>
 </Window>
