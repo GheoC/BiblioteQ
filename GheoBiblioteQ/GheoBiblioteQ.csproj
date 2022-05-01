@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ModelDTOs\Author\AuthorDTO.cs" />
+    <Compile Include="ModelDTOs\BookType\BookTypeDTO.cs" />
     <Compile Include="ModelDTOs\Publisher\PublisherDTO.cs" />
     <Compile Include="ModelDTOs\User\UserDTO.cs" />
     <Compile Include="Model\Author.cs">
@@ -107,16 +108,25 @@
       <DependentUpon>BiblioteQGh.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AuthorViewModel.cs" />
+    <Compile Include="ViewModels\BookTypeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PublisherViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeViewModel.cs" />
     <Compile Include="Views\AuthorView.xaml.cs">
       <DependentUpon>AuthorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookTypeView.xaml.cs">
+      <DependentUpon>BookTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PublisherView.xaml.cs">
       <DependentUpon>PublisherView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="_Service\Author\AuthorService.cs" />
+    <Compile Include="_Service\BookType\BookTypeService.cs" />
     <Compile Include="_Service\Publisher\PublisherService.cs" />
     <Compile Include="_Service\ViewModelBase.cs" />
     <Compile Include="Views\UserView.xaml.cs">
@@ -126,7 +136,6 @@
     <Compile Include="_Service\EnumBindingSource.cs" />
     <Compile Include="_Service\UsersFieldsEnum.cs" />
     <Compile Include="_Service\User\UserService.cs" />
-    <Compile Include="_Stores\NavigationStore.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,11 +152,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BookTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PublisherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

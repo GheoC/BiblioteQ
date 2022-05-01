@@ -42,7 +42,7 @@ namespace GheoBiblioteQ.ModelDTOs.Author
         public DateTime BirthDate
         {
             get { return birthdate; }
-            set { birthdate = value; }
+            set { birthdate = value; OnPropertyChanged("BirthDate"); }
         }
         #endregion
 

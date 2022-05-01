@@ -12,22 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GheoBiblioteQ.ViewModels;
 
-namespace GheoBiblioteQ
+namespace GheoBiblioteQ.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BookTypeView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BookTypeView : UserControl
     {
-        MainViewModel viewModel;
-        public MainWindow()
+        public BookTypeView()
         {
             InitializeComponent();
-            viewModel = new MainViewModel();
-            DataContext = viewModel;
-            
         }
     }
 }

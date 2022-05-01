@@ -24,7 +24,7 @@ namespace GheoBiblioteQ.ViewModels
             updateCommand = new CustomCommand(update);
             deleteCommand = new CustomCommand(delete);
             //searchCommand = new CustomCommand(search);
-            //switchActiveCommand = new CustomCommand(switchStatus);
+            switchActiveCommand = new CustomCommand(switchStatus);
         }
 
         #region Current Author Property
@@ -58,40 +58,36 @@ namespace GheoBiblioteQ.ViewModels
 
         #endregion
 
-        #region Search Type
-        private string searchType;
-        public string SearchType
+        #region Searched Author Property
+        private string searchedAuthor;
+        public string SearchedAuthor
         {
-            get { return searchType; }
-            set { searchType = value; OnPropertyChanged("SearchType"); }
+            get
+            {
+                return searchedAuthor;
+            }
+            set
+            {
+                searchedAuthor = value;
+                if (searchedAuthor == null)
+                {
+                    loadData();
+                }
+                else
+                {
+                    search();
+                }
+                OnPropertyChanged("SearchedAuthor");
+            }
+        }
+
+        public void search()
+        {
+
+            AuthorDTOs = new ObservableCollection<AuthorDTO>(authorService.searchAuthors(searchedAuthor));
+
         }
         #endregion
-
-        //#region Searched User Property
-        //private string searchedUser;
-        //public string SearchedUser
-        //{
-        //    get
-        //    {
-        //        return searchedUser;
-
-
-        //    }
-        //    set
-        //    {
-        //        searchedUser = value;
-        //        if (searchedUser == null)
-        //        {
-        //            loadData();
-        //        }
-        //        else
-        //        {
-        //            search();
-        //        }
-        //        OnPropertyChanged("SearchedUser");
-        //    }
-        //}
-        //#endregion
 
         #region Message Property
         private string message;
@@ -156,7 +152,7 @@ namespace GheoBiblioteQ.ViewModels
         }
         #endregion
 
-        #region DELETE User
+        #region DELETE Author
         private CustomCommand deleteCommand;
         public CustomCommand DeleteCommand
         {
@@ -189,36 +185,21 @@ namespace GheoBiblioteQ.ViewModels
         }
         #endregion
 
-        //#region SEARCH User
-        //private CustomCommand searchCommand;
-        //public CustomCommand SearchCommand
-        //{
-        //    get { return searchCommand; }
-        //}
+        #region SWITCH ACTIVE/INACTIVE
+        private CustomCommand switchActiveCommand;
+        public CustomCommand SwitchActiveCommand
+        {
+            get { return switchActiveCommand; }
+        }
 
-        //public void search()
-        //{
-
-        //    UserDTOs = new ObservableCollection<UserDTO>(userService.searchUsers(searchedUser, searchType));
-
-        //}
-        //#endregion
-
-        //#region SWITCH ACTIVE/INACTIVE
-        //private CustomCommand switchActiveCommand;
-        //public CustomCommand SwitchActiveCommand
-        //{
-        //    get { return switchActiveCommand; }
-        //}
-
-        //public void switchStatus()
-        //{
-        //    userService.switchUserStatus(currentUser);
-        //    loadData();
-        //}
+        public void switchStatus()
+        {
+            authorService.switchAuthorStatus(currentAuthor);
+            loadData();
+        }
 
 
-        //#endregion
+        #endregion
 
         private void loadData()
         {

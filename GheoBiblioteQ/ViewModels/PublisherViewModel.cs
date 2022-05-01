@@ -36,6 +36,7 @@ namespace GheoBiblioteQ.ViewModels
             set { currentPublisher = value; OnPropertyChanged("CurrentPublisher"); }
         }
         #endregion
+
         #region Message to User
         private string message;
         public string Message
@@ -44,6 +45,7 @@ namespace GheoBiblioteQ.ViewModels
             set { message = value; OnPropertyChanged("Message"); }
         }
         #endregion
+
         #region Selected Publisher
         private PublisherDTO selectedPublisher;
         public PublisherDTO SelectedPublisher

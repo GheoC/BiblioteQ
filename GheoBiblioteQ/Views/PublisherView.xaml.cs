@@ -21,12 +21,9 @@ namespace GheoBiblioteQ.Views
     /// </summary>
     public partial class PublisherView : UserControl
     {
-        private PublisherViewModel publisherViewModel;
         public PublisherView()
         {
             InitializeComponent();
-            publisherViewModel = new PublisherViewModel();
-            this.DataContext = publisherViewModel;
         }
     }
 }

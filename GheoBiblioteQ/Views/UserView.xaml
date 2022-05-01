@@ -222,8 +222,8 @@
 				Content="Active/Inactive"
 				Grid.Column="0"
 				Grid.Row="7"
-				Margin="68,7,0,7"
-				Width="100"
+				Margin="60,7,0,7"
+				Width="95"
 				HorizontalAlignment="Left"
                 Command="{Binding Path=SwitchActiveCommand}" Background="Yellow" OpacityMask="#FFC77474" FontWeight="Bold"
 				/>

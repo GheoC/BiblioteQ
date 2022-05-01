@@ -92,6 +92,49 @@ namespace GheoBiblioteQ._Service.Author
         }
         #endregion
 
+        #region Search Authors Service
+        public List<AuthorDTO> searchAuthors(string searchedAuthor)
+        {
+            List<AuthorDTO> authorDTOs = new List<AuthorDTO>();
+
+            List<Model.Author> authorsFromDB = new List<Model.Author>();
+
+                authorsFromDB = biblioteqEntities.Authors.Where(u => (u.first_name.Contains(searchedAuthor) || u.last_name.Contains(searchedAuthor))).ToList();
+
+
+            for (int i = 0; i < authorsFromDB.Count; i++)
+            {
+                AuthorDTO authorDTO = new AuthorDTO();
+
+                authorDTO.FirstName = authorsFromDB[i].first_name;
+                authorDTO.LastName = authorsFromDB[i].last_name;
+                authorDTO.BirthDate = authorsFromDB[i].birthdate;
+                authorDTO.Active = authorsFromDB[i].active;
+
+                authorDTOs.Add(authorDTO);
+            }
+
+            return authorDTOs;
+        }
+        #endregion
+
+        #region Switch Authors Status Service
+        public void switchAuthorStatus(AuthorDTO currentAuthor)
+        {
+            Model.Author authorFromDB = biblioteqEntities.Authors.Where(a => a.author_id == currentAuthor.AuthorId).FirstOrDefault();
+
+            if (authorFromDB.active) 
+            {
+                authorFromDB.active = false;
+            }
+            else 
+            {
+                authorFromDB.active = true;
+            }
+            biblioteqEntities.SaveChanges();
+        }
+        #endregion
+
 
 
     }
