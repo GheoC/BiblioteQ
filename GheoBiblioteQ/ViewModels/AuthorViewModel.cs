@@ -20,10 +20,8 @@ namespace GheoBiblioteQ.ViewModels
             loadData();
             currentAuthor = new AuthorDTO();
             saveCommand = new CustomCommand(save);
-            //searchType = "LastName";
             updateCommand = new CustomCommand(update);
             deleteCommand = new CustomCommand(delete);
-            //searchCommand = new CustomCommand(search);
             switchActiveCommand = new CustomCommand(switchStatus);
         }
 

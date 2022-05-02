@@ -134,8 +134,5 @@ namespace GheoBiblioteQ._Service.Author
             biblioteqEntities.SaveChanges();
         }
         #endregion
-
-
-
     }
 }

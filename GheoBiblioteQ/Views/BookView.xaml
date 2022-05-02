@@ -98,39 +98,31 @@
 				Grid.Row="1"
 				Padding="10,5,0,10"
 				FontSize="18"
-                Text="{Binding Path= CurrentBook.Title, Mode=TwoWay}"
+                Text="{Binding Path= Title, Mode=TwoWay}"
 				>
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
 
-            <TextBox
-				Margin="7,5,20,5"
-				Grid.Column="1"
-				Grid.Row="2"
-				Padding="10,5,0,10"
-				FontSize="18"
-                Text="{Binding Path = CurrentBook.PublisherId, Mode=TwoWay}"
-			>
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
+            <ComboBox 
+                Margin="5,5,25,5"
+                Grid.Column="1" 
+                Grid.Row="2"
+                ItemsSource="{Binding Path = PublishersName}"
+                SelectedItem="{Binding Path = SelectedPublisher}"
+                >
+            </ComboBox>
 
-            <TextBox
-                Name="txtEmail"
-				Margin="7,5,20,5"
-				Grid.Column="1"
-				Grid.Row="3"
-				Padding="10,5,0,10"
-				FontSize="18"
-                Text="{Binding Path = CurrentBook.BookTypeId, StringFormat={}{0:MM/dd/yyyy}, Mode=TwoWay}"
-			>
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
+            <ComboBox 
+                Margin="5,5,25,5"
+                Grid.Column="1" 
+                Grid.Row="3"
+                ItemsSource="{Binding Path = BookTypesName}"
+                SelectedItem="{Binding Path = SelectedBookType}"
+                >
+            </ComboBox>
+            
 
             <TextBox
 				Margin="7,5,20,5"
@@ -138,7 +130,7 @@
 				Grid.Row="4"
 				Padding="10,5,0,10"
 				FontSize="18"
-                Text="{Binding Path= CurrentBook.Stock, Mode=TwoWay}"
+                Text="{Binding Path= Stock, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
 			>
                 <TextBox.Effect>
                     <DropShadowEffect/>
@@ -148,10 +140,10 @@
 
 
             <ComboBox 
-                Margin="5"
+                Margin="5,5,25,5"
                 Grid.Column="1" 
                 Grid.Row="5"
-                ItemsSource="{Binding Path = AuthorDTOs}"
+                ItemsSource="{Binding Path = AuthorsName}"
                 SelectedItem="{Binding Path = SelectedAuthor}"
                 >
             </ComboBox>
