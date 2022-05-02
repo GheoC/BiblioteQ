@@ -25,6 +25,7 @@ namespace GheoBiblioteQ.ViewModels
             updateViewAuthors = new CustomCommand(viewAuthors);
             updateViewPublishers = new CustomCommand(viewPublishers);
             updateViewBookTypes = new CustomCommand(viewBookTypes);
+            updateViewBooks = new CustomCommand(viewBooks);
         }
 
 
@@ -78,6 +79,22 @@ namespace GheoBiblioteQ.ViewModels
         {
             SelectedViewModel = new BookTypeViewModel();
         }
+        #endregion
+
+
+        #region Switch to Books View
+        private CustomCommand updateViewBooks;
+
+        public CustomCommand UpdateViewBooks
+        {
+            get { return updateViewBooks; }
+        }
+
+        public void viewBooks() 
+        {
+            SelectedViewModel = new BookViewModel();
+        }
+
         #endregion
 
 

@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="author_id" Type="int" Nullable="false" />
           <Property Name="book_id" Type="int" Nullable="false" />
           <Property Name="NumberInList" Type="int" Nullable="false" />
@@ -28,7 +28,7 @@
           <Key>
             <PropertyRef Name="book_id" />
           </Key>
-          <Property Name="book_id" Type="int" Nullable="false" />
+          <Property Name="book_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="booktype_id" Type="int" Nullable="false" />
           <Property Name="publisher_id" Type="int" Nullable="false" />
           <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
@@ -186,7 +186,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="author_id" Type="Int32" Nullable="false" />
           <Property Name="book_id" Type="Int32" Nullable="false" />
           <Property Name="NumberInList" Type="Int32" Nullable="false" />
@@ -208,7 +208,7 @@
           <Key>
             <PropertyRef Name="book_id" />
           </Key>
-          <Property Name="book_id" Type="Int32" Nullable="false" />
+          <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="booktype_id" Type="Int32" Nullable="false" />
           <Property Name="publisher_id" Type="Int32" Nullable="false" />
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />

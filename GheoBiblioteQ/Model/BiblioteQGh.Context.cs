@@ -22,7 +22,19 @@ namespace GheoBiblioteQ.Model
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<AuthorBook>()
+                .HasKey(c => new { c.author_id, c.book_id });
+
+            modelBuilder.Entity<Book>()
+                .HasMany<Author>(a => a.Authors)
+                .WithMany(b => b.Books)
+                .Map(ab =>
+                        {
+                            ab.MapLeftKey("book_id");
+                            ab.MapRightKey("author_id");
+                            ab.ToTable("AuthorBook");
+                        });
+
         }
     
         public virtual DbSet<AuthorBook> AuthorBooks { get; set; }

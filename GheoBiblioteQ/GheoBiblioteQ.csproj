@@ -69,6 +69,7 @@
     </ApplicationDefinition>
     <Compile Include="ModelDTOs\Author\AuthorDTO.cs" />
     <Compile Include="ModelDTOs\BookType\BookTypeDTO.cs" />
+    <Compile Include="ModelDTOs\Book\BookDTO.cs" />
     <Compile Include="ModelDTOs\Publisher\PublisherDTO.cs" />
     <Compile Include="ModelDTOs\User\UserDTO.cs" />
     <Compile Include="Model\Author.cs">
@@ -109,6 +110,7 @@
     </Compile>
     <Compile Include="ViewModels\AuthorViewModel.cs" />
     <Compile Include="ViewModels\BookTypeViewModel.cs" />
+    <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PublisherViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
@@ -119,6 +121,9 @@
     <Compile Include="Views\BookTypeView.xaml.cs">
       <DependentUpon>BookTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PublisherView.xaml.cs">
       <DependentUpon>PublisherView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +132,7 @@
     </Compile>
     <Compile Include="_Service\Author\AuthorService.cs" />
     <Compile Include="_Service\BookType\BookTypeService.cs" />
+    <Compile Include="_Service\Book\BookService.cs" />
     <Compile Include="_Service\Publisher\PublisherService.cs" />
     <Compile Include="_Service\ViewModelBase.cs" />
     <Compile Include="Views\UserView.xaml.cs">
@@ -153,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BookTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

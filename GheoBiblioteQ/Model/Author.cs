@@ -28,5 +28,7 @@ namespace GheoBiblioteQ.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AuthorBook> AuthorBooks { get; set; }
+
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

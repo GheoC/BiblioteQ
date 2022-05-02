@@ -35,6 +35,10 @@
                 <vw:BookTypeView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vms:BookViewModel}">
+                <vw:BookView/>
+            </DataTemplate>
+
         </Grid.Resources>
 
         <Grid.ColumnDefinitions>
@@ -88,6 +92,15 @@
                 FontSize="38"
                 Background="Chartreuse"
                 Command="{Binding UpdateViewBookTypes}"/>
+
+            <Button 
+                Grid.Row="4"
+                Margin="15"
+                Content="Books" 
+                FontWeight="Bold"
+                FontSize="38"
+                Background="Chartreuse"
+                Command="{Binding UpdateViewBooks}"/>
 
 
         </Grid>

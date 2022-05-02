@@ -34,5 +34,6 @@ namespace GheoBiblioteQ.Model
         public virtual Publisher Publisher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Author> Authors { get; set; }
     }
 }
